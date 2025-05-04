@@ -1,0 +1,49 @@
+
+name: Deploy My Cloud Portfolio to AWS EC2 Instance
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: ${{secrets.AWS_REGION}}
+
+      - name: Login to Amazon ECR
+        run: |
+          aws ecr get-login-password --region ${{secrets.AWS_REGION}} | docker login --username AWS --password-stdin ${{secrets.ECR_REGISTRY}}
+
+      - name: Build Docker Image
+        run: |
+          docker build -t ${{secrets.ECR_REGISTRY}}/${{secrets.ECR_REPOSITORY}}:latest .
+
+      - name: Push Docker Image to ECR
+        run: |
+          docker push ${{secrets.ECR_REGISTRY}}/${{secrets.ECR_REPOSITORY}}:latest
+
+      - name: SSH into EC2 and Deploy New Container
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{secrets.EC2_PUBLIC_IP}}
+          username: ubuntu
+          key: ${{secrets.EC2_SSH_PRIVATE_KEY}}
+          script: |
+            aws ecr get-login-password --region ${{secrets.AWS_REGION}} | docker login --username AWS --password-stdin ${{secrets.ECR_REGISTRY}}
+            docker pull ${{secrets.ECR_REGISTRY}}/${{secrets.ECR_REPOSITORY}}:latest
+            docker stop portfolio-container || true
+            docker rm portfolio-container || true
+            docker network create app-network || true
+            docker run -d --name portfolio-container --restart unless-stopped -p 3000:80 ${{secrets.ECR_REGISTRY}}/${{secrets.ECR_REPOSITORY}}:latest
+            docker network connect app-network portfolio-container

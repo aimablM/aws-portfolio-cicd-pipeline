@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/logo.png" alt="CI/CD Pipeline Logo" width="120" height="120">
+  <img src="docs/images/amlogo.svg" alt="Portfolio Logo" width="100" height="100">
 </p>
 
 # AWS ECR CI/CD Pipeline for Cloud Applications
@@ -16,7 +16,7 @@ A production-grade CI/CD pipeline implementation that automatically builds, push
 
 > This project implements a complete production deployment pipeline from code to cloud, focusing on containerization, automation, security, and maintainability. It represents real-world DevOps practices I've implemented for cloud-native applications.
 
-## Project Overview
+## 🔍 Project Overview
 
 This CI/CD pipeline automatically deploys a containerized application to AWS whenever code is pushed to the main branch, demonstrating the following capabilities:
 
@@ -27,9 +27,7 @@ This CI/CD pipeline automatically deploys a containerized application to AWS whe
 - **Monitoring:** Pipeline status monitoring with failure alerts
 - **Troubleshooting:** Systematic debugging and problem-solving for production issues
 
-## Architecture
-
-![CI/CD Pipeline Architecture](docs/images/architecture-diagram.png)
+## 🏗️ Architecture
 
 The pipeline follows a modern cloud deployment architecture:
 
@@ -45,7 +43,10 @@ The pipeline follows a modern cloud deployment architecture:
                        └──────────────SSH Connection──────────┘
 ```
 
-## Key Features
+![ECR Registry Setup](docs/images/ecr-registry-creation.png)
+*Image 1: Setting up the Amazon ECR private repository*
+
+## ✨ Key Features
 
 - **End-to-End Automation:** Push to `main` branch automatically triggers build and deployment
 - **Amazon ECR Integration:** Docker images securely stored in private Elastic Container Registry
@@ -55,7 +56,7 @@ The pipeline follows a modern cloud deployment architecture:
 - **Error Handling:** Automatic recovery from failures and container restart policies
 - **Zero-Downtime Deployment:** Application remains available during updates
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 | Technology | Purpose |
 |------------|---------|
@@ -68,7 +69,10 @@ The pipeline follows a modern cloud deployment architecture:
 | **SSH** | Secure server connection |
 | **GitHub Secrets** | Secure credentials storage |
 
-## Implementation Process
+![GitHub Actions Workflow](docs/images/github-actions-secrets.png)
+*Image 6: Repository secrets configuration for secure CI/CD pipeline*
+
+## 📋 Implementation Process
 
 ### Phase 1: Infrastructure Setup
 
@@ -127,9 +131,12 @@ The final phase involved automating the deployment process:
    - Implemented least privilege principle for AWS roles
    - Configured private network for container communication
 
-## GitHub Actions Workflow
+## 💻 GitHub Actions Workflow
 
 The core of this project is the GitHub Actions workflow file, which orchestrates the entire CI/CD process:
+
+![Workflow File](docs/images/github-cicd-workflow.png)
+*Image 7: GitHub Actions workflow YAML file in VS Code*
 
 ```yaml
 name: Deploy My Cloud Portfolio to AWS EC2 Instance
@@ -182,6 +189,9 @@ jobs:
             docker network connect app-network portfolio-container
 ```
 
+![GitHub Actions Runs](docs/images/failed-workflow-deploy.png)
+*Image 9: GitHub Actions workflow runs history showing testing iterations*
+
 This workflow:
 1. Triggers on pushes to the main branch
 2. Sets up AWS credentials for ECR access
@@ -191,7 +201,7 @@ This workflow:
 6. Connects to EC2 via SSH
 7. Pulls the new image and deploys it as a container
 
-## Secrets Management
+## 🔒 Secrets Management
 
 The pipeline relies on several GitHub Secrets for secure credential management:
 
@@ -206,13 +216,16 @@ The pipeline relies on several GitHub Secrets for secure credential management:
 | `EC2_SSH_PRIVATE_KEY` | SSH private key for EC2 access |
 | `EC2_USER` | Username for SSH access (e.g., `ubuntu`) |
 
-## Challenges & Solutions
+## 🚧 Challenges & Solutions
 
 Throughout this project, I encountered and systematically resolved several technical challenges:
 
 ### 1. ECR Authentication Issues
 
 **Problem:** GitHub Actions pipeline failed during ECR authentication with errors like "name unknown: The repository does not exist"
+
+![ECR Repository Error](docs/images/failed-deploy2.png)
+*Image 5: GitHub Actions failure showing repository name error*
 
 **Root Cause:** Incorrectly formatted ECR registry and repository secrets with extra slashes and spaces.
 
@@ -222,9 +235,15 @@ ECR_REGISTRY = 054037110265.dkr.ecr.us-east-1.amazonaws.com
 ECR_REPOSITORY = portfolio
 ```
 
+![ECR Repository Setup](docs/images/ecr-repo.png)
+*Image 3: Successfully created ECR repository with correct naming*
+
 ### 2. SSH Key Authentication Failures
 
 **Problem:** SSH connection to EC2 failed with "ssh.ParsePrivateKey: ssh: no key found"
+
+![SSH Authentication Error](docs/images/ssh-authentication-error.png)
+*Image 4: GitHub Actions failure showing SSH key parse error*
 
 **Root Cause:** Incomplete PEM key in GitHub Secrets, missing BEGIN/END headers.
 
@@ -239,6 +258,9 @@ ECR_REPOSITORY = portfolio
 
 **Problem:** After successful SSH, the EC2 instance failed to pull images from ECR with "Unable to locate credentials"
 
+![EC2 Terminal](docs/images/ec2-image-configuring.png)
+*Image 2: EC2 instance terminal showing Docker commands and AWS configuration*
+
 **Root Cause:** AWS credentials not configured on the EC2 instance itself.
 
 **Solution:** 
@@ -246,6 +268,9 @@ ECR_REPOSITORY = portfolio
 2. Configured AWS CLI with `aws configure`
 3. Added ECR login to deployment script
 4. Verified credentials by testing ECR connection
+
+![ECR Image Registry](docs/images/ecr-image-registry.png)
+*Image 10: Successfully pushed Docker images in the ECR repository*
 
 ### 4. Cross-Platform Docker Image Compatibility
 
@@ -260,7 +285,10 @@ ECR_REPOSITORY = portfolio
     docker build --platform linux/amd64 -t ${{secrets.ECR_REGISTRY}}/${{secrets.ECR_REPOSITORY}}:latest .
 ```
 
-## Results and Performance
+![Successful Deployment Log](docs/images/successful-deploy.png)
+*Image 12: SSH deployment log showing successful container operations*
+
+## 🎯 Results and Performance
 
 The implementation of this CI/CD pipeline resulted in significant improvements:
 
@@ -272,7 +300,7 @@ The implementation of this CI/CD pipeline resulted in significant improvements:
 | **Recovery Time** | Hours | Minutes |
 | **Developer Time Saved** | N/A | ~4 hours/week |
 
-## Lessons Learned
+## 📚 Lessons Learned
 
 This project provided several important learning opportunities:
 
@@ -286,7 +314,7 @@ This project provided several important learning opportunities:
 
 5. **SSH Authentication:** SSH key management requires careful attention to formatting and permissions.
 
-## Future Enhancements
+## 🚀 Future Enhancements
 
 The following improvements are planned for this pipeline:
 
@@ -297,7 +325,7 @@ The following improvements are planned for this pipeline:
 5. **AWS IAM Roles:** Replace AWS key/secret with IAM role-based authentication
 6. **Monitoring Dashboard:** Add CloudWatch metrics and alerts
 
-## Getting Started
+## 🧰 Getting Started
 
 To use this pipeline for your own projects:
 
@@ -339,21 +367,22 @@ To use this pipeline for your own projects:
    - Monitor GitHub Actions tab for build status
    - Verify deployment on EC2 instance
 
-## 📷 Screenshots
+## 🎯 Results and Deployment
 
-### GitHub Actions Pipeline Success
-![GitHub Actions Success](docs/images/github-actions-success.png)
+After resolving all the challenges, the pipeline successfully deploys the application to production:
 
-### AWS ECR Container Registry
-![ECR Repository](docs/images/ecr-repository.png)
+![Successful Deployment](docs/images/successful-deploy.png)
+![Successful Deployment](docs/images/successful-deploy-attemp19.png)
 
-### EC2 Deployment Log
-![EC2 Deployment](docs/images/ec2-deployment.png)
+*Image 11: Successful GitHub Actions deployment showing all steps completed*
 
-### Repository Secrets Configuration
-![GitHub Secrets](docs/images/github-secrets.png)
+![Live Website](docs/images/live-website.png)
+*Image 8: The live portfolio website deployed at aimablem.dev*
 
-## License
+![Terraform Deployment](docs/images/terraform-deployment.png)
+*Image 12: Adding Terraform folders to version control for infrastructure as code*
+
+## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
