@@ -4,11 +4,13 @@
 
 # AWS ECR CI/CD Pipeline for Cloud Applications
 
-![CI/CD Status](https://img.shields.io/github/actions/workflow/status/aimablM/aimable-myportfoliopage-app/deploy.yml?label=CI/CD%20Pipeline) ![License](https://img.shields.io/badge/license-MIT-blue)
-![AWS](https://img.shields.io/badge/AWS-ECR%20|%20EC2-orange?style=for-the-badge&logo=amazon-aws)
+![CI/CD Status](https://img.shields.io/github/actions/workflow/status/aimablM/aimable-myportfoliopage-app/deploy.yml?label=CI%2FCD%20Pipeline&style=for-the-badge&logo=github-actions&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=open-source-initiative&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-ECR%20%7C%20EC2-orange?style=for-the-badge&logo=amazon-aws)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
 
 A production-grade CI/CD pipeline implementation that automatically builds, pushes, and deploys containerized applications from GitHub to Amazon ECR and EC2, demonstrating modern DevOps practices and cloud infrastructure expertise.
 
