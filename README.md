@@ -9,7 +9,6 @@
 ![AWS](https://img.shields.io/badge/AWS-ECR%20%7C%20EC2-orange?style=for-the-badge&logo=amazon-aws)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
 
 A production-grade CI/CD pipeline implementation that automatically builds, pushes, and deploys containerized applications from GitHub to Amazon ECR and EC2, demonstrating modern DevOps practices and cloud infrastructure expertise.
