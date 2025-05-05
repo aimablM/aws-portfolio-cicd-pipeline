@@ -4,7 +4,7 @@
 
 # AWS ECR CI/CD Pipeline for Cloud Applications
 
-![CI/CD Status](https://img.shields.io/github/actions/workflow/status/aimablM/aws-docker-cicd-pipeline/deploy.yml?label=CI/CD%20Pipeline&style=for-the-badge)
+![CI/CD Status](https://img.shields.io/github/actions/workflow/status/aimablM/aimable-myportfoliopage-app/deploy.yml?label=CI/CD%20Pipeline) ![License](https://img.shields.io/badge/license-MIT-blue)
 ![AWS](https://img.shields.io/badge/AWS-ECR%20|%20EC2-orange?style=for-the-badge&logo=amazon-aws)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
