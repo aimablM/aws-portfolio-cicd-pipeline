@@ -27,7 +27,7 @@ This CI/CD pipeline automatically deploys a containerized application to AWS whe
 - **Monitoring:** Pipeline status monitoring with failure alerts
 - **Troubleshooting:** Systematic debugging and problem-solving for production issues
 
-## 🏗️ Architecture
+## Architecture
 
 The pipeline follows a modern cloud deployment architecture:
 
@@ -46,7 +46,7 @@ The pipeline follows a modern cloud deployment architecture:
 ![ECR Registry Setup](docs/images/ecr-registry-creation.png)
 *Image 1: Setting up the Amazon ECR private repository*
 
-## ✨ Key Features
+## Key Features
 
 - **End-to-End Automation:** Push to `main` branch automatically triggers build and deployment
 - **Amazon ECR Integration:** Docker images securely stored in private Elastic Container Registry
@@ -56,7 +56,7 @@ The pipeline follows a modern cloud deployment architecture:
 - **Error Handling:** Automatic recovery from failures and container restart policies
 - **Zero-Downtime Deployment:** Application remains available during updates
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 | Technology | Purpose |
 |------------|---------|
@@ -72,7 +72,7 @@ The pipeline follows a modern cloud deployment architecture:
 ![GitHub Actions Workflow](docs/images/github-actions-secrets.png)
 *Image 6: Repository secrets configuration for secure CI/CD pipeline*
 
-## 📋 Implementation Process
+## Implementation Process
 
 ### Phase 1: Infrastructure Setup
 
@@ -131,7 +131,7 @@ The final phase involved automating the deployment process:
    - Implemented least privilege principle for AWS roles
    - Configured private network for container communication
 
-## 💻 GitHub Actions Workflow
+## GitHub Actions Workflow
 
 The core of this project is the GitHub Actions workflow file, which orchestrates the entire CI/CD process:
 
@@ -201,7 +201,7 @@ This workflow:
 6. Connects to EC2 via SSH
 7. Pulls the new image and deploys it as a container
 
-## 🔒 Secrets Management
+## Secrets Management
 
 The pipeline relies on several GitHub Secrets for secure credential management:
 
@@ -216,7 +216,7 @@ The pipeline relies on several GitHub Secrets for secure credential management:
 | `EC2_SSH_PRIVATE_KEY` | SSH private key for EC2 access |
 | `EC2_USER` | Username for SSH access (e.g., `ubuntu`) |
 
-## 🚧 Challenges & Solutions
+## Challenges & Solutions
 
 Throughout this project, I encountered and systematically resolved several technical challenges:
 
@@ -288,7 +288,7 @@ ECR_REPOSITORY = portfolio
 ![Successful Deployment Log](docs/images/successful-deploy.png)
 *Image 12: SSH deployment log showing successful container operations*
 
-## 🎯 Results and Performance
+## Results and Performance
 
 The implementation of this CI/CD pipeline resulted in significant improvements:
 
@@ -300,7 +300,7 @@ The implementation of this CI/CD pipeline resulted in significant improvements:
 | **Recovery Time** | Hours | Minutes |
 | **Developer Time Saved** | N/A | ~4 hours/week |
 
-## 📚 Lessons Learned
+## Lessons Learned
 
 This project provided several important learning opportunities:
 
@@ -314,7 +314,7 @@ This project provided several important learning opportunities:
 
 5. **SSH Authentication:** SSH key management requires careful attention to formatting and permissions.
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 The following improvements are planned for this pipeline:
 
@@ -325,7 +325,7 @@ The following improvements are planned for this pipeline:
 5. **AWS IAM Roles:** Replace AWS key/secret with IAM role-based authentication
 6. **Monitoring Dashboard:** Add CloudWatch metrics and alerts
 
-## 🧰 Getting Started
+## Getting Started
 
 To use this pipeline for your own projects:
 
@@ -367,7 +367,7 @@ To use this pipeline for your own projects:
    - Monitor GitHub Actions tab for build status
    - Verify deployment on EC2 instance
 
-## 🎯 Results and Deployment
+## Results and Deployment
 
 After resolving all the challenges, the pipeline successfully deploys the application to production:
 
@@ -382,11 +382,11 @@ After resolving all the challenges, the pipeline successfully deploys the applic
 ![Terraform Deployment](docs/images/terraform-deployment.png)
 *Image 12: Adding Terraform folders to version control for infrastructure as code*
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 👤 Contact
+## Contact
 
 - **Name**: Aimable M.
 - **LinkedIn**: [linkedin.com/in/aimable-m-920608107](https://linkedin.com/in/aimablem)
