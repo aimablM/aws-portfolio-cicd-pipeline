@@ -17,7 +17,7 @@ A production-grade CI/CD pipeline implementation that automatically builds, push
 
 > This project implements a complete production deployment pipeline from code to cloud, focusing on containerization, automation, security, and maintainability. It represents real-world DevOps practices I've implemented for cloud-native applications.
 
-## 🔍 Project Overview
+## Project Overview
 
 This CI/CD pipeline automatically deploys a containerized application to AWS whenever code is pushed to the main branch, demonstrating the following capabilities:
 
