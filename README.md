@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/amlogo.svg" alt="My Logo" width="100" height="100">
+  <img src="docs/images/amlogo.svg" alt="My Logo" width="100" height="80">
 </p>
 
 # AWS ECR CI/CD Pipeline for Cloud Applications
