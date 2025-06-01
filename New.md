@@ -4,7 +4,7 @@
 
 # Multi-Environment AWS ECR CI/CD Pipeline for Cloud Applications
 
-![CI/CD Status](https://img.shields.io/github/actions/workflow/status/aimablM/aimable-myportfoliopage-app/deploy-prod.yml?label=Production%20Pipeline&style=for-the-badge&logo=github-actions&logoColor=white)
+![CI/CD Status](https://img.shields.io/github/actions/workflow/status/aimablM/aimable-myportfoliopage-app/deploy.yml?label=CI%2FCD%20Pipeline&style=for-the-badge&logo=github-actions&logoColor=white)
 ![Staging Status](https://img.shields.io/github/actions/workflow/status/aimablM/aimable-myportfoliopage-app/deploy-staging.yml?label=Staging%20Pipeline&style=for-the-badge&logo=github-actions&logoColor=white)
 ![Dev Status](https://img.shields.io/github/actions/workflow/status/aimablM/aimable-myportfoliopage-app/deploy-dev.yml?label=Dev%20Pipeline&style=for-the-badge&logo=github-actions&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=open-source-initiative&logoColor=white)
